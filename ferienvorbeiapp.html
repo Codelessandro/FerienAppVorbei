@@ -89,6 +89,19 @@
 
   };
 
+
+  /* build menu */
+  const nav = document.querySelector("nav")
+  Object.keys(pages).forEach(function (page) {
+    const li = document.createElement("li")
+    const a = document.createElement("a")
+    a.href = "#".concat(pages[page].id)
+    a.id = "#".concat(pages[page].id)
+    a.innerHTML = pages[page].navTitle
+    li.appendChild(a)
+    nav.appendChild(li)
+  })
+
 </script>
 
 
