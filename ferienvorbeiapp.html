@@ -55,7 +55,6 @@
     <main></main>
 
 
-
     <template id="as_gemacht">
         <img src="https://baubeaver.de/wp-content/uploads/werkbank-infos-drechseln-querholz.jpg"/>
         <br/>
@@ -68,7 +67,6 @@
 
 
 </div>
-
 
 
 <script type="text/javascript">
@@ -102,9 +100,14 @@
     nav.appendChild(li)
   })
 
+  window.addEventListener("hashchange", evt => {
+    const page = evt.newURL.split("#")[1] || "intro";
+    navigateTo(page);
+    evt.preventDefault();
+  });
+
+
 </script>
-
-
 
 
 </body>
