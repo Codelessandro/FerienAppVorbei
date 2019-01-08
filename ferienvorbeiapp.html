@@ -107,6 +107,35 @@
   });
 
 
+  const main = document.querySelector("main");
+
+  function navigateTo(where) { // where must be a key of pages
+    if (!pages.hasOwnProperty(where)) { // Guard, better alternative: Map
+      where = "home";
+    }
+    const {id, navTitle} = pages[where];
+    const template = document.getElementById(id)
+
+    // clear content
+    while (main.firstChild) {
+      main.removeChild(main.firstChild);
+    }
+    // append content
+    main.appendChild(document.importNode(template.content, true));
+
+    // fix menu
+    Array.from(nav.getElementsByTagName("a")).forEach(a => a.classList.remove("active"));
+    document.getElementById("#".concat(id)).classList.add("active")
+
+
+  }
+
+
+
+  // Start with the intro page!
+  navigateTo(location.hash.substring(1) || "intro");
+
+
 </script>
 
 
