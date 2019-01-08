@@ -80,6 +80,17 @@
 
 
         </template>
+        <script type="text/javascript">
+
+          for (const d of geschenkJson) {
+            const def = document.querySelector("#geschenkeTemplate").content;
+            def.querySelector("h3").innerHTML = d.name
+            def.querySelector("p").innerHTML = d.description
+
+
+            document.querySelector(".content").appendChild(document.importNode(def, true));
+          }
+        </script>
 
     </template>
 
